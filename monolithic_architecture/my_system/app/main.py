@@ -29,6 +29,8 @@ def load_user(id):
     return users
 
 # DEFINED ROUTES
+from modules.public import public_bp
+app.register_blueprint(public_bp)
 from modules.auth import auth_bp
 app.register_blueprint(auth_bp)
 from modules.admin import admin_bp

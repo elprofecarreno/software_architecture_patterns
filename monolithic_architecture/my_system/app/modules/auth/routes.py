@@ -29,5 +29,6 @@ def index():
 
 @auth_bp.route("/logout", methods=["GET", "POST"])
 def logout():
+    print(f'logout user: {current_user.username}')
     logout_user()
     return redirect('../auth/')
