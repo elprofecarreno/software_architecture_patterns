@@ -1,0 +1,28 @@
+version: '3'
+
+networks:
+  my-system-networks:
+
+services:
+  my-system-app:
+    build:
+      context: ./my_system
+      dockerfile: Dockerfile
+    environment:
+      SQLALCHEMY_DATABASE_URI: "mysql://root:1234567890@my-db/my_system_db"
+      SQLALCHEMY_TRACK_MODIFICATIONS: "False"
+      SERVER_DEBUG: True
+      SERVER_HOST: "0.0.0.0"
+      SERVER_PORT: "8000"
+      SECRET_KEY: "hNwjv6F5ECxb89PYMklFk5SpSQeLSe4xXVuCYnyD0st2fSj5Gq6E9vARIaoCA7tha6vqxKPnNTg7vdL9"
+    ports:
+      - 8000:8000
+    networks:
+      - my-system-networks
+
+  my-db:
+    build:
+      context: ./my_database
+      dockerfile: Dockerfile
+    networks:
+      - my-system-networks
