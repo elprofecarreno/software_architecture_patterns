@@ -19,6 +19,8 @@ services:
       - 8000:8000
     networks:
       - my-system-networks
+    volumes:
+      - ./my_system/app:/opt/app/
 
   my-db:
     build:

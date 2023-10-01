@@ -5,7 +5,8 @@ RUN apk add py3-pip
 RUN apk add pkgconfig
 RUN apk add --virtual build-deps gcc python3-dev musl-dev
 RUN apk add --no-cache mariadb-dev
-COPY ./app/ /opt/
-COPY ./requirements.txt /opt/requirements.txt
-RUN pip3 install -r /opt/requirements.txt
-CMD python3 /opt/main.py
+RUN mkdir -p /opt/app
+COPY ./app/ /opt/app
+WORKDIR /opt/app/
+RUN pip3 install -r requirements.txt
+CMD python3 main.py

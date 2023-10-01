@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from . import admin_bp
-from admin.forms import UsersForm
-from auth.models import Users
+from .forms import UsersForm
+from ..auth.models import Users
 
 
 @admin_bp.route("/")
