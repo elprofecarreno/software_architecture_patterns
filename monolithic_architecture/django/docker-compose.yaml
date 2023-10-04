@@ -1,0 +1,42 @@
+version: '3'
+
+networks:
+  monolithic-networks:
+
+services:
+  monolithic-app:
+    build:
+      context: ./monolithic_web
+      dockerfile: Dockerfile
+    environment:
+      # SERVER CONFIG
+      SERVER_PORT: "8000"
+      SERVER_HOST: "0.0.0.0"
+      # DATABASE CONFIG
+      DB_NAME: "monolithic_db"
+      DB_USER: "root"
+      DB_PASS: "1234567890"
+      DB_HOST: "monolithic-db-container" 
+      DB_PORT: "3306"
+    ports:
+      - 9000:8000
+    networks:
+      - monolithic-networks
+    volumes:
+      - ./monolithic_web/monolithic_portal:/opt/app/monolithic_portal
+    depends_on:
+      monolithic-db-container: 
+        condition: service_healthy
+
+  monolithic-db-container:
+    build:
+      context: ./monolithic_database
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 40s
+        retries: 10      
+    networks:
+      - monolithic-networks

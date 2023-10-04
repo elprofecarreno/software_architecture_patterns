@@ -1,0 +1,26 @@
+{% extends "main.html" %}{% load static %}
+{% block title %}LOGIN{% endblock %}
+{% block head %}
+<style>
+  body {
+    background-size: 100%;
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div style="max-width:800px; margin: 0 auto">
+    <main class="mx-auto my-5 p-5 border  border-2 border-primary rounded" style="background-color: white; opacity: 1;">
+      <form action="" method="post" novalidate>
+        <div class="row">
+          <img class="mb-4 mt-2 col" style="min-width: 150px;" src="{% static 'img/icons/fingerprint-scan.png' %}" alt="">
+          <h2 class="col mt-4 text-center">MY SYSTEM</h2>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+
+{% endblock %}
