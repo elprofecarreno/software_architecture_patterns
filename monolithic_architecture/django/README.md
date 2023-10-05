@@ -14,13 +14,13 @@ docker compose up
 
 ### INICIO DE SESIÓN
 
-Para poder iniciar sesión deberemos ingresar a [http://127.0.0.1:8000](http://127.0.0.1:8000) o [http://localhost:8000](http://localhost:8000).
+Para poder iniciar sesión deberemos ingresar a [http://127.0.0.1:9000](http://127.0.0.1:9000) o [http://localhost:9000](http://localhost:9000).
 
 Para ingresar al sistema deberemos realizarlo con las siguientes credenciales.
 
 ```
 user: admin
-pass: 1234567890
+pass: admin
 ```
 
 ![my_system_1](../monolithic_architecture/docs/my_system_1.png)
@@ -28,3 +28,12 @@ pass: 1234567890
 ![my_system_2](../monolithic_architecture/docs/my_system_2.png)
 
 ![my_system_3](../monolithic_architecture/docs/my_system_3.png)
+
+### INICIO DJANGO ADMIN
+
+Para poder iniciar sesión deberemos ingresar a [http://127.0.0.1:9000/admin](http://127.0.0.1:9000/admin) o [http://localhost:9000/admin](http://localhost:9000/admin).
+
+```
+user: admin
+pass: admin
+```

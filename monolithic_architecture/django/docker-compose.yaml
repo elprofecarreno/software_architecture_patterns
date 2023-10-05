@@ -4,7 +4,7 @@ networks:
   monolithic-networks:
 
 services:
-  monolithic-app:
+  monolithic-app-container:
     build:
       context: ./monolithic_web
       dockerfile: Dockerfile
