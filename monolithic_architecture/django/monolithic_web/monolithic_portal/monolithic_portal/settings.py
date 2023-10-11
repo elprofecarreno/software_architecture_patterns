@@ -62,6 +62,7 @@ TEMPLATES = [
         'DIRS': [
                     os.path.join('monolithic_portal', 'template'), 
                     os.path.join('monolithic_portal', 'template', 'auth'),
+                    os.path.join('monolithic_portal', 'template', 'admin'),
                     os.path.join('monolithic_portal', 'template', 'public')],
         'APP_DIRS': True,
         'OPTIONS': {
