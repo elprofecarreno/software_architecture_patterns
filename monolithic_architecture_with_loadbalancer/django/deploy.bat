@@ -10,7 +10,6 @@ REM Obtiene el ID de la imagen para eliminarlo
 for /f "tokens=1" %%i in ('docker images ^| findstr "monolithic-app-container"') do set CONTAINER_ID=%%i
 if not "%CONTAINER_ID%"=="" docker rmi -f %CONTAINER_ID%
 
-
 REM Obtiene el ID de la imagen para eliminarlo
 for /f "tokens=1" %%i in ('docker images ^| findstr "monolithic-db-container"') do set CONTAINER_ID=%%i
 if not "%CONTAINER_ID%"=="" docker rmi -f %CONTAINER_ID%

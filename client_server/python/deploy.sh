@@ -22,13 +22,13 @@ removeDeleteImage() {
 }
 # ELIMINAR CONTENEDORES
 echo "DELETE CONTAINERS"
-removeContainer "monolithic-app-container"
-removeContainer "monolithic-db-container"
+removeContainer "python-server-socket-app-container-1"
+removeContainer "python-client-socket-app-container-1"
 
 # ELIMINAR IMAGENES
 echo "DELETE IMAGES"
-removeDeleteImage "monolithic-app-container"
-removeDeleteImage "monolithic-db-container"
+removeDeleteImage "python-server-socket-app-container"
+removeDeleteImage "python-client-socket-app-container"
 
 BASE_DIR=$(dirname $0)
 echo "BASE_DIR = $BASE_DIR"
