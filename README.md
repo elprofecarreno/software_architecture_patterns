@@ -119,3 +119,17 @@ Para desplegar la aplicación deberemos ejecutar el siguiente comando:
 sh monolithic_architecture_with_loadbalancer/django/deploy.sh
 ```
 
+Para poder iniciar sesión deberemos ingresar a [http://127.0.0.1:9000](http://127.0.0.1:9000) o [http://localhost:9000](http://localhost:9000).
+
+Para ingresar al sistema deberemos realizarlo con las siguientes credenciales.
+
+```
+user: admin
+pass: admin
+```
+
+![my_system_1](./docs/my_system_1.png)
+
+![my_system_3](./docs/my_system_3.png)
+
+![my_system_2](./docs/my_system_2.png)
