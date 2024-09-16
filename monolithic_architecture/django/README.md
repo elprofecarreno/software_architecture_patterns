@@ -2,7 +2,7 @@
 
 Este proyecto tiene por objetivo ejemplificar una arquitectura monolitica, mediante una aplicación web con flask y una base de datos mysql.
 
-![monolithic_architecture](../monolithic_architecture/docs/monolithic_architecture.drawio.png)
+![monolithic_architecture](../django/docs/monolithic_architecture.drawio.png)
 
 ### INSTALACIÓN CON DOCKER 
 

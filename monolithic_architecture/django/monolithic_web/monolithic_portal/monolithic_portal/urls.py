@@ -18,10 +18,17 @@ from django.contrib import admin
 from django.urls import path
 from monolithic_portal.views import public_home
 from monolithic_portal.views.auth import login
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    # HOME
     path('admin/', admin.site.urls),
     path('', public_home.index),
     path('index', public_home.index),
-    path('auth', login.index)
+
+    # LOGIN
+    path('auth', login.index, name='login'),
+
+    # LOGOUT AND REDIRECT
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]

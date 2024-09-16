@@ -22,8 +22,8 @@ services:
       - 9000:8000
     networks:
       - monolithic-networks
-    volumes:
-      - ./monolithic_web/monolithic_portal:/opt/app/monolithic_portal
+    #volumes:
+    #  - ./monolithic_web/monolithic_portal:/opt/app/monolithic_portal
     depends_on:
       monolithic-db-container: 
         condition: service_healthy
@@ -32,8 +32,8 @@ services:
     build:
       context: ./monolithic_database
       dockerfile: Dockerfile
-    ports:
-      - 3306:3306
+    #ports:
+    #  - 3306:3306
     healthcheck:
         test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
         timeout: 40s
