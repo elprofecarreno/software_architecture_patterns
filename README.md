@@ -47,7 +47,7 @@ pass: admin
 ![my_system_2](./docs/my_system_2.png)
 
 
-## Sample Monolithic Architecture Django - Ejemplo Arquitectura Monolítica con Django y Balanceador de Carga
+## Sample Monolithic Architecture Django with Load Balancer - Ejemplo Arquitectura Monolítica con Django y Balanceador de Carga
 
 En este ejemplo se utilizará una arquitectura monolítica basada en Django un framework de python para la creación de aplicaciones web junto a un balanceador de carga configurado con nginx y la estrategía ip hash.
 
