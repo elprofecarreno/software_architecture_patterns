@@ -1,22 +1,22 @@
 REM Obtiene el ID del contenedor para eliminarlo
-for /f "tokens=1" %%i in ('docker ps -a ^| findstr "apache2_container_1"') do set CONTAINER_ID=%%i
+for /f "tokens=1" %%i in ('docker ps -a ^| findstr "monolithic-app-container"') do set CONTAINER_ID=%%i
 if not "%CONTAINER_ID%"=="" docker rm -f %CONTAINER_ID%
 
 REM Obtiene el ID del contenedor para eliminarlo
-for /f "tokens=1" %%i in ('docker ps -a ^| findstr "apache2_container_2"') do set CONTAINER_ID=%%i
-if not "%CONTAINER_ID%"=="" docker rm -f %CONTAINER_ID%
-
-REM Obtiene el ID del contenedor para eliminarlo
-for /f "tokens=1" %%i in ('docker ps -a ^| findstr "apache2_container_3"') do set CONTAINER_ID=%%i
-if not "%CONTAINER_ID%"=="" docker rm -f %CONTAINER_ID%
-
-REM Obtiene el ID del contenedor para eliminarlo
-for /f "tokens=1" %%i in ('docker ps -a ^| findstr "loadbalancer_nginx"') do set CONTAINER_ID=%%i
+for /f "tokens=1" %%i in ('docker ps -a ^| findstr "monolithic-db-container"') do set CONTAINER_ID=%%i
 if not "%CONTAINER_ID%"=="" docker rm -f %CONTAINER_ID%
 
 REM Obtiene el ID de la imagen para eliminarlo
-for /f "tokens=3" %%i in ('docker images ^| findstr "app_web"') do set IMAGE_ID=%%i
-if not "%IMAGE_ID%"=="" docker rmi -f %IMAGE_ID%
+for /f "tokens=1" %%i in ('docker images ^| findstr "monolithic-app-container"') do set CONTAINER_ID=%%i
+if not "%CONTAINER_ID%"=="" docker rmi -f %CONTAINER_ID%
+
+
+REM Obtiene el ID de la imagen para eliminarlo
+for /f "tokens=1" %%i in ('docker images ^| findstr "monolithic-db-container"') do set CONTAINER_ID=%%i
+if not "%CONTAINER_ID%"=="" docker rmi -f %CONTAINER_ID%
+
 
 REM CONSTRUIR IMAGEN, DESPLEGAR CONTENEDORES APP WEB Y BALANCEADOR
-docker compose up
+set "BASE_DIR=%~dp0"
+echo BASE_DIR = %BASE_DIR%
+docker-compose -f %BASE_DIR%docker-compose.yaml up

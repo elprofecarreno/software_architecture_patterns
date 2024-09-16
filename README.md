@@ -21,13 +21,7 @@ Para desplegar la aplicación deberemos ejecutar el siguiente comando:
 **WINDOWS CON CMD**
 
 ```shell
-    ./monolithic_architecture/django/deploy.bat
-```
-
-**WINDOWS CON POWERSHELL**
-
-```shell
-    ./monolithic_architecture/django/deploy.bat
+.\monolithic_architecture\django\deploy.bat
 ```
 
 **LINUX CON CMD**
