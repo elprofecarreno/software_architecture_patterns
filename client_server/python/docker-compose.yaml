@@ -1,0 +1,29 @@
+version: '3'
+
+networks:
+  server-client-networks:
+
+services:
+  server-socket-app-container:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      # SERVER CONFIG
+      SERVER_PORT: "11000"
+      SERVER_HOST: "0.0.0.0"
+      PYTHONUNBUFFERED: "1"
+    networks:
+      - server-client-networks
+
+  client-socket-app-container:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    environment:
+      # SERVER CONFIG
+      SERVER_PORT: "11000"
+      SERVER_HOST: "server-socket-app-container"
+    networks:
+      - server-client-networks
+
