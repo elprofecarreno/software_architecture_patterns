@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block title %}MONOLITHICS PORTAL{% endblock %}
+{% block head %}
+<style>
+    body {
+        background-size: 100%;
+        background: url("/static/background/peakpx_5.jpg") 50% 0 no-repeat fixed;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container mt-2">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand btn btn-outline-info" href="/auth" >LOGIN</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block container %}
+    {% endblock %}
+</div>
+
+{% endblock %}
