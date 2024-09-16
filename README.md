@@ -4,7 +4,7 @@ El siguiente proyecto tiene el objetivo de explicar mediante docker algunos patr
 
 # Monolithic Architecture - Arquitectura Monolítica.
 
-Una arquitectura monolítica puede constar de una solo archivos, multiples archivos, librerías o módulos los cuales al ser compilados o ejecutados generán un único archivo o aplicación para ser desplegado dentro de una máquina o servidor. En la siguiente imagen se puede visualizar un ejemplo.
+Una arquitectura monolítica puede constar de un solo archivos, multiples archivos, librerías o módulos los cuales al ser compilados o ejecutados generán un único archivo o aplicación para ser desplegado dentro de una máquina o servidor. En la siguiente imagen se puede visualizar un ejemplo.
 
 ![monolito_01.png](./docs/monolito_01.png)
 
@@ -24,7 +24,7 @@ Para desplegar la aplicación deberemos ejecutar el siguiente comando:
 .\monolithic_architecture\django\deploy.bat
 ```
 
-**LINUX CON CMD**
+**TERMINAL LINUX**
 
 ```shell
 sh monolithic_architecture/django/deploy.sh
