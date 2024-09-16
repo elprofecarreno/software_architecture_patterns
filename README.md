@@ -42,6 +42,6 @@ pass: admin
 
 ![my_system_1](./docs/my_system_1.png)
 
-![my_system_2](./docs/my_system_2.png)
-
 ![my_system_3](./docs/my_system_3.png)
+
+![my_system_2](./docs/my_system_2.png)
