@@ -17,16 +17,11 @@ COPY ./monolithic_portal /opt/app/monolithic_portal
 
 # CURRENT DIRECTORY
 WORKDIR /opt/app/monolithic_portal
+# INSTALL DEPENDECIES
 RUN pip3 install -r requirements.txt
 # SERVER CONFIG
 ENV SERVER_PORT "8000"
 ENV SERVER_HOST "0.0.0.0"
-# DATABASE CONFIG
-ENV DB_NAME "monolithic_db"
-ENV DB_USER "root"
-ENV DB_PASS "1234567890"
-ENV DB_HOST "monolithic-db-container" 
-ENV DB_PORT "3306" 
 
 # RUN PYTHON APP WEB
-CMD python3 manage.py runserver "$SERVER_HOST:$SERVER_PORT"
+CMD python3 -u manage.py runserver "$SERVER_HOST:$SERVER_PORT"

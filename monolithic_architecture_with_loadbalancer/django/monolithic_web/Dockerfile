@@ -29,4 +29,4 @@ ENV DB_HOST "monolithic-db-container"
 ENV DB_PORT "3306" 
 
 # RUN PYTHON APP WEB
-CMD python3 manage.py runserver "$SERVER_HOST:$SERVER_PORT"
+CMD python3 -u manage.py runserver "$SERVER_HOST:$SERVER_PORT"
