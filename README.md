@@ -151,6 +151,10 @@ Para la integración de servicios se puede usar un Enterprise Services Bus (ESB)
 
 En este ejemplo se utilizará una arquitectura SOA con python para la creación de servicios web (WebService), junto a una aplicación web en Flask.
 
+Elwebservice consta de los métodos add_user, delete_user, list_user, add_region, delete_region, list_region los que realizán una comunicación directa con la base de datos mysql para realizar dichas transacciones. Estos puede ser consumidos con cualquier cliente de webservice de tipo soap por ejemplo soap-ui. No poseen autenticación, además de recibir o responder mensajes de tipo XML. Para 
+
+La aplicación web es un sitio que permite utilizar los métodos de list_region y list_user mostrando los datos obtenidos desde el webservice.
+
 ![soacustom.drawio.png](./docs/soacustom.drawio.png)
 
 Para desplegar la aplicación deberemos ejecutar el siguiente comando:
