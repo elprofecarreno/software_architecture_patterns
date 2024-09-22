@@ -4,28 +4,64 @@ networks:
   soap-architecture-networks:
 
 services:
-  #soap-service-app:
-  #  build:
-  #    context: ./backend
-  #    dockerfile: Dockerfile
-  #  #environment:
-  #    #SQLALCHEMY_DATABASE_URI: "mysql://root:1234567890@my-db/my_system_db"
-  #    #SQLALCHEMY_TRACK_MODIFICATIONS: "False"
-  #    #SERVER_DEBUG: True
-  #    #SERVER_HOST: "0.0.0.0"
-  #    #SERVER_PORT: "8000"
-  #    #SECRET_KEY: "hNwjv6F5ECxb89PYMklFk5SpSQeLSe4xXVuCYnyD0st2fSj5Gq6E9vARIaoCA7tha6vqxKPnNTg7vdL9"
-  #  ports:
-  #    - 8000:8000
-  #  networks:
-  #    - soap-architecture-networks
+  soap-app-web-container:
+    build:
+      context: ./frontend/site_web
+      dockerfile: Dockerfile
+    environment:
+      # SERVER CONFIG
+      SERVER_PORT: "9091"
+      SERVER_HOST: "0.0.0.0"
+      # SOAP WS
+      SOAP_WS: "http://soap-service-app:9090?wsdl"
+    ports:
+      - 9091:9091
+    networks:
+      - soap-architecture-networks
+    #depends_on:
+    #  soap-service-app: 
+    #    condition: service_healthy
+
+  soap-service-app:
+    build:
+      context: ./backend/portal_service
+      dockerfile: Dockerfile
+    environment:
+      # DATABASE CONFIG
+      DB_USER: "root"
+      DB_PASS: "S04.P0Rt4L"
+      DB_HOST: "soap-db-container"
+      DB_PORT: "3306"
+      DB_NAME: "portal_db"    
+      # SERVER CONFIG
+      SERVER_DEBUG: True
+      SERVER_HOST: "0.0.0.0"
+      SERVER_PORT: "9090"
+      SECRET_KEY: "hNwjv6F5ECxb89PYMklFk5SpSQeLSe4xXVuCYnyD0st2fSj5Gq6E9vARIaoCA7tha6vqxKPnNTg7vdL9"
+    ports:
+      - 9090:9090
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8080?wsdl"]
+        interval: 30s
+        timeout: 40s
+        retries: 10
+        start_period: 60s
+    networks:
+      - soap-architecture-networks
+    depends_on:
+      soap-db-container: 
+        condition: service_healthy      
 
   soap-db-container:
     build:
       context: ./backend/portal_database
       dockerfile: Dockerfile
-    ports:
-      - 3306:3306      
+    environment:
+      # MYSQL DEFINITION
+      MYSQL_ROOT_PASSWORD: "S04.P0Rt4L"
+      MYSQL_DATABASE: "portal_db"
+    #ports:
+    #  - 3306:3306      
     healthcheck:
         test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
         timeout: 40s
