@@ -6,7 +6,7 @@
 
 [1.2 Monolithic Architecture - Arquitectura Monolítica.](#monolithic-architecture)
 
-[1.3 SOA Architecture - Arquitectura Monolítica.](#soa-architecture)
+[1.3 SOA Architecture - Arquitectura Orientada a Servicio.](#soa-architecture)
 
 
 <a name="software-architecture-patterns"></a>
@@ -138,7 +138,7 @@ pass: admin
 
 
 <a name="soa-architecture"></a>
-#  SOA Architecture - Arquitectura Monolítica.
+#  SOA Architecture - Arquitectura Orientada a Servicio.
 
 Esta arquitectura llamada orientada a servicios, permite la reutilización de componentes los cuales se comunican con un mismo lenguaje y protocolo en común. Estos servicios son unidades autónomas o con multiples funciones diseñada para realizar una o multiples tareas específicas, como lo son recuperar un conjunto de datos desde un motor de base de datos.
 
@@ -153,4 +153,30 @@ En este ejemplo se utilizará una arquitectura SOA con python para la creación 
 
 ![soacustom.drawio.png](./docs/soacustom.drawio.png)
 
+Para desplegar la aplicación deberemos ejecutar el siguiente comando:
 
+**WINDOWS CON CMD**
+
+```shell
+.\soa_architecture\python\deploy.bat
+```
+
+**TERMINAL LINUX**
+
+```shell
+sh soa_architecture/python/deploy.sh
+```
+
+Para usar los servicios se pueden ejecutar con soap-ui con la url [http://localhost:9090](http://localhost:9090).
+
+![soap_01.png](./docs/soap_01.png)
+
+![soap_02.png](./docs/soap_02.png)
+
+Para ingresar en la aplicación web usaremos la siguiente url [http://localhost:9091](http://localhost:9091).
+
+![soap_03.png](./docs/soap_03.png)
+
+![soap_04.png](./docs/soap_04.png)
+
+![soap_05.png](./docs/soap_05.png)
