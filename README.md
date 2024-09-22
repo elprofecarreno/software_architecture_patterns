@@ -6,6 +6,8 @@
 
 [1.2 Monolithic Architecture - Arquitectura Monolítica.](#monolithic-architecture)
 
+[1.3 SOA Architecture - Arquitectura Monolítica.](#soa-architecture)
+
 
 <a name="software-architecture-patterns"></a>
 # SOFTWARE ARCHITECTURE PATTERNS - Patrones de Arquitectura de Software.
@@ -133,3 +135,22 @@ pass: admin
 ![my_system_3](./docs/my_system_3.png)
 
 ![my_system_2](./docs/my_system_2.png)
+
+
+<a name="soa-architecture"></a>
+#  SOA Architecture - Arquitectura Monolítica.
+
+Esta arquitectura llamada orientada a servicios, permite la reutilización de componentes los cuales se comunican con un mismo lenguaje y protocolo en común. Estos servicios son unidades autónomas o con multiples funciones diseñada para realizar una o multiples tareas específicas, como lo son recuperar un conjunto de datos desde un motor de base de datos.
+
+Para la integración de servicios se puede usar un Enterprise Services Bus (ESB), el que permite mediante herramientas la integración de estos.
+
+![soa.drawio.png](./docs/soa.drawio.png)
+
+
+## Sample SOA Architecture with Python - Ejemplo Arquitectura Orientada a Servicio con Python 
+
+En este ejemplo se utilizará una arquitectura SOA con python para la creación de servicios web (WebService), junto a una aplicación web en Flask.
+
+![soacustom.drawio.png](./docs/soacustom.drawio.png)
+
+
